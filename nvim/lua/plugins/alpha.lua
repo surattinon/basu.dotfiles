@@ -41,9 +41,9 @@ return {
       -- NOTE: SET MENU
       dashboard.section.buttons.val = {
         dashboard.button('n', '  > New file', ':ene <BAR> startinsert <CR>'),
-        dashboard.button('f', '󰈞  > Find file', '<CMD>Telescope find_files<CR>'),
-        dashboard.button('w', '  > Find file', '<CMD>Telescope grep_string<CR>'),
-        dashboard.button('q', '󰈆  > Quit NVIM', '<CMD>qa<CR>'),
+        dashboard.button('f', '󰈞  > Find file', ':Telescope find_files<CR>'),
+        dashboard.button('g', '  > Find grep', ':Telescope grep_string<CR>'),
+        dashboard.button('q', '󰈆  > Quit VIM', ':qa<CR>'),
       }
 
       -- Ampha config

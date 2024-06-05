@@ -5,8 +5,8 @@ local silent = { noremap = true, silent = true }
 -- Diagnostic keymaps
 map('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 map('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
-map('n', '<leader>md', vim.diagnostic.open_float, { desc = 'Show diagnostic error messages' })
-map('n', '<leader>qd', vim.diagnostic.setloclist, { desc = 'Open diagnostic Quickfix list' })
+map('n', '<leader>md', vim.diagnostic.open_float, { desc = 'Show diagnostic Error messages' })
+map('n', '<leader>mq', vim.diagnostic.setloclist, { desc = 'Open diagnostic Quickfix list' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
