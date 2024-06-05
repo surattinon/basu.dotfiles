@@ -1,4 +1,19 @@
 return {
+  -- NOTE: COPILOT
+  {
+    'github/copilot.vim',
+    config = function()
+      vim.keymap.set('i', '<C-Space>', 'copilot#Accept("\\<CR>")', {
+        expr = true,
+        replace_keycodes = false,
+        silent = true,
+        noremap = true,
+      })
+      vim.g.copilot_no_tab_map = true
+    end,
+  },
+
+  -- NOTE: CMP AND SNIPPETS
   { -- Autocompletion
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
