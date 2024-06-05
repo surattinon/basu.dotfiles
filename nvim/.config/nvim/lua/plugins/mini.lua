@@ -42,6 +42,18 @@ return {
         cursor = { enable = false },
         scroll = { enable = false },
       }
+
+      -- NOTE: Indent scope
+      require('mini.indentscope').setup {
+        draw = {
+          delay = 100,
+        },
+        symbol = '▏',
+        options = {
+          border = 'none',
+          indent_at_cursor = true,
+        },
+      }
     end,
   },
 }
