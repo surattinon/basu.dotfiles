@@ -1,33 +1,32 @@
 if status is-interactive
-and not set -q TMUX
-  if tmux has-session -t Dev
-    exec tmux attach-session -t Dev
-  else
-    tmux new-session -s Dev
-  end
+    and not set -q TMUX
+    if tmux has-session -t Dev
+        exec tmux attach-session -t Dev
+    else
+        tmux new-session -s Dev
+    end
 end
 
 # Alias for custom nvim
-alias vim="NVIM_APPNAME=bvim nvim"
-alias cvim="NVIM_APPNAME=nvchad nvim"
-#alias vi="NVIM_APPNAME=nvchad nvim"
+alias vim="nvim"
+alias chad="NVIM_APPNAME=nvchad nvim"
 
 # NEOVIDE
 alias nvide="NVIM_APPNAME=bvim neovide"
 
 # NVIM SELECTOR
 function vims
-  set items kickstartnvim bvim nvchad nvim-basu default 
-  set config (printf "%s\n" $items | fzf --prompt=" Neovim Config = " --height=~50% --layout=reverse --border --exit-0)
+    set items default NvChad
+    set config (printf "%s\n" $items | fzf --prompt=" Neovim Config = " --height=~50% --layout=reverse --border --exit-0)
 
-  if test -z "$config"
-    echo "Nothing selected"
-    return 0
-  else if test "$config" = default
-    set config ""
-  end
+    if test -z "$config"
+        echo "Nothing selected"
+        return 0
+    else if test "$config" = default
+        set config ""
+    end
 
-  env NVIM_APPNAME=$config nvim $argv
+    env NVIM_APPNAME=$config nvim $argv
 end
 
 # Alias for eza
@@ -79,7 +78,7 @@ thefuck --alias | source
 
 # KEYBINDS
 function fish_user_key_bindings
-  bind \cn 'vims'
+    bind \cn vims
 end
 
 # Maven
