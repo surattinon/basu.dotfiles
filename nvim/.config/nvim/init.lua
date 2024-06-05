@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 --[[
 
 =====================================================================
@@ -105,9 +106,6 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
-
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
 
   -- NOTE: All plugins and config are in "lua/plugins" directory
   { import = 'plugins' },
