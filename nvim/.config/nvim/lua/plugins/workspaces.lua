@@ -7,9 +7,8 @@ return {
       local workspace = require 'workspace'
       workspace.setup {
         workspaces = {
-          { name = 'Dev', path = '~/Dev', keymap = { '<leader>w1', { desc = 'Dev workspaces' } } },
-          { name = 'Programming 1 (Assignment)', path = '~/Projects/STIU/Y3T2/Programming-II/Submissions/Assignments/', keymap = { '<leader>w2' } },
-          { name = 'Programming 1 (Class Activity)', path = '~/Projects/STIU/Y3T2/Programming-II/Submissions/Class-activities/', keymap = { '<leader>w3' } },
+          { name = 'Dev', path = '~/Dev', keymap = { '<leader>w1' } },
+          { name = 'Programming 1 (Submissions)', path = '~/Projects/STIU/Y3T2/Programming-II/Submissions/', keymap = { '<leader>w2' } },
         },
       }
 
