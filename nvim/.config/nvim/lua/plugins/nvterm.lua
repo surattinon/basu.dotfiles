@@ -26,11 +26,8 @@ return {
       -- NOTE: KEYMAPS
       local toggle_modes = { 'n', 't' }
       local map = vim.keymap.set
-      map(toggle_modes, '<C-\\>', function()
+      map(toggle_modes, '<C-t>', function()
         require('nvterm.terminal').toggle 'horizontal'
-      end)
-      map(toggle_modes, '<A-g>', function()
-        require('nvterm.terminal').send('lazygit', 'float')
       end)
     end,
   },
