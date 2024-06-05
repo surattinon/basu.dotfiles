@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 return {
   -- NOTE: SMOTH CURSOR
   {
@@ -18,7 +19,7 @@ return {
         callback = function()
           local current_mode = vim.fn.mode()
           if current_mode == 'n' then
-            vim.api.nvim_set_hl(0, 'SmoothCursor', { fg = '#8aa872' })
+            vim.api.nvim_set_hl(0, 'SmoothCursor', { fg = '#ff7a69' })
             vim.fn.sign_define('smoothcursor', { text = '' })
           elseif current_mode == 'v' then
             vim.api.nvim_set_hl(0, 'SmoothCursor', { fg = '#bf616a' })
