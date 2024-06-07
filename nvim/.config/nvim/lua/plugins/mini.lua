@@ -47,10 +47,11 @@ return {
       require('mini.indentscope').setup {
         draw = {
           delay = 100,
+          priority = 2,
         },
         symbol = '▏',
         options = {
-          border = 'none',
+          border = 'bottom',
           indent_at_cursor = true,
         },
       }

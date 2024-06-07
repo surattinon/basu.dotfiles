@@ -1,29 +1,29 @@
 return {
-  -- NOTE: COLORSCHEME
+  -- NOTE: Tokyodark
+  {
+    'tiagovla/tokyodark.nvim',
+    opts = {},
+    config = function(_, opts)
+      require('tokyodark').setup(opts)
+    end,
+  },
+
+  -- NOTE: CATPPUCCIN
   {
     'catppuccin/nvim',
     name = 'catppuccin',
     priority = 1000,
     init = function()
-      -- enable colorscheme
-      vim.cmd.colorscheme 'catppuccin-mocha'
-
       -- Config highlight
       vim.cmd.hi 'Comment gui=none'
     end,
     config = function()
-      require('catppuccin').setup {
+      local catppuccin = require 'catppuccin'
+      catppuccin.setup {
+        transparent_background = true,
         integrations = {
           alpha = true,
           cmp = true,
-          gitsigns = true,
-
-          indent_blankline = {
-            enabled = true,
-            scope_color = 'text', -- catppuccin color (eg. `lavender`) Default: text
-            colored_indent_levels = false,
-          },
-
           mason = true,
 
           mini = {
@@ -65,6 +65,11 @@ return {
           which_key = true,
         },
       }
+      if vim.g.neovide then
+        vim.cmd [[colorscheme tokyodark]]
+      else
+        vim.cmd [[colorscheme catppuccin-mocha]]
+      end
     end,
   },
 }

@@ -24,7 +24,11 @@ map('n', 'ss', ':split<CR>', silent)
 map('n', 'sv', ':vsplit<CR>', silent)
 
 -- NOTE: RESIZE WINDOW
-map('n', '<C-w><left>', '6<C-w><')
-map('n', '<C-w><right>', '6<C-w>>')
-map('n', '<C-w><up>', '3<C-w>+')
-map('n', '<C-w><down>', '3<C-w>-')
+map('n', '<C-w><C-h>', '10<C-w><')
+map('n', '<C-w><C-l>', '10<C-w>>')
+map('n', '<C-w><C-j>', '5<C-w>+')
+map('n', '<C-w><C-k>', '5<C-w>-')
+
+-- NOTE: Telescope extensions custom keymaps
+map('n', '<leader>fp', ':Telescope projects<CR>', { desc = '[F]ind Recent [P]rojects' })
+map('n', '<leader>fp', ':Telescope projects<CR>', { desc = '[F]ind Recent [P]rojects' })

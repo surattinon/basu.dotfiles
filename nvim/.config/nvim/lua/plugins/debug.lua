@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 -- debug.lua
 --
 -- Shows how to use the DAP plugin to debug your code.
@@ -21,7 +22,7 @@ return {
     'williamboman/mason.nvim',
     'jay-babu/mason-nvim-dap.nvim',
 
-    -- Add your own debuggers here
+    -- NOTE: debugger repos here
     'leoluz/nvim-dap-go',
   },
   config = function()
@@ -35,12 +36,11 @@ return {
 
     --NOTE: DAP KEYMAPS
     local map = vim.keymap.set
-    map('n', '<leader>dt', dap.toggle_breakpoint, { desc = '[D]ebug [T]oggle Breakpoint' })
+    map('n', '<leader>b', dap.toggle_breakpoint, { desc = '[D]ebug [T]oggle Breakpoint' })
     map('n', '<leader>dc', dap.continue, { desc = '[D]ebug [C]ontinue' })
-    -- map('n', '<F1>', dap.step_into, { desc = 'Debug: Step Into' })
-    -- map('n', '<F2>', dap.step_over, { desc = 'Debug: Step Over' })
-    -- map('n', '<F3>', dap.step_out, { desc = 'Debug: Step Out' })
-    map('n', '<leader>dT', function()
+    map('n', '<leader>di', dap.step_into, { desc = '[D]ebug: Step [I]nto' })
+    map('n', '<leader>do', dap.step_over, { desc = '[D]ebug: Step [O]ver' })
+    map('n', '<leader>bb', function()
       dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
     end, { desc = 'Debug: Set Breakpoint' })
     map('n', '<leader>dx', function()
@@ -94,6 +94,7 @@ return {
       },
     }
 
+    -- NOTE: DAP CONFIG
     -- Install golang specific config
     require('dap-go').setup {
       delve = {

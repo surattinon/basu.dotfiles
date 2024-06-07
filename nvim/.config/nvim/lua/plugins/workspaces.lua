@@ -8,13 +8,13 @@ return {
       workspace.setup {
         workspaces = {
           { name = 'Dev', path = '~/Dev', keymap = { '<leader>w1' } },
-          { name = 'Programming 1 (Submissions)', path = '~/Projects/STIU/Y3T2/Programming-II/Submissions/', keymap = { '<leader>w2' } },
+          { name = 'Programming 2', path = '~/Projects/STIU/Y3T2/Programming-II', keymap = { '<leader>w2' } },
         },
       }
 
       -- NOTE: KEYMAPS
       local map = vim.keymap.set
-      map('n', '<leader>wn', workspace.tmux_sessions, { desc = '[W]orkspace [N]ew Tmux window' })
+      map('n', '<leader>wt', workspace.tmux_sessions, { desc = '[W]orkspace [T]mux window' })
     end,
   },
 }
