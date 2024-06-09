@@ -32,3 +32,16 @@ map('n', '<C-w><C-k>', '5<C-w>-')
 -- NOTE: Telescope extensions custom keymaps
 map('n', '<leader>fp', ':Telescope projects<CR>', { desc = '[F]ind Recent [P]rojects' })
 map('n', '<leader>fp', ':Telescope projects<CR>', { desc = '[F]ind Recent [P]rojects' })
+
+-- NOTE: Obsidian keymaps
+map('n', '<leader>on', ':ObsidianNew<CR>', { desc = 'Obsidian: Create a new Note', silent = true })
+map('n', '<leader>oo', ':ObsidianOpen<CR>', { desc = 'Obsidian: Open a note', silent = true })
+map('n', '<leader>os', ':ObsidianSearch<CR>', { desc = 'Obsidian: Search notes', silent = true })
+map('n', '<leader>ol', ':ObsidianFollowLink<CR>', { desc = 'Obsidian: Follow Url', silent = true })
+map('n', '<leader>ob', ':ObsidianBacklinks<CR>', { desc = 'Obsidian: Show backlinks', silent = true })
+map('n', '<leader>ot', ':ObsidianTags<CR>', { desc = 'Obsidian: Show tags', silent = true })
+map('n', '<leader>od', ':ObsidianDailies<CR>', { desc = 'Obsidian: Open daily note', silent = true })
+
+-- NOTE: Navigator keymaps
+map('n', ']b', ':bprevious<CR>', { desc = 'Previous buffer' })
+map('n', ']b', ':bnext<CR>', { desc = 'Next buffer' })

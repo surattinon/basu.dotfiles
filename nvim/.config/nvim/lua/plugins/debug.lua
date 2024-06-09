@@ -36,7 +36,7 @@ return {
 
     --NOTE: DAP KEYMAPS
     local map = vim.keymap.set
-    map('n', '<leader>b', dap.toggle_breakpoint, { desc = '[D]ebug [T]oggle Breakpoint' })
+    map('n', 'B', dap.toggle_breakpoint, { desc = '[D]ebug [T]oggle Breakpoint' })
     map('n', '<leader>dc', dap.continue, { desc = '[D]ebug [C]ontinue' })
     map('n', '<leader>di', dap.step_into, { desc = '[D]ebug: Step [I]nto' })
     map('n', '<leader>do', dap.step_over, { desc = '[D]ebug: Step [O]ver' })
