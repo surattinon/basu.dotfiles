@@ -5,6 +5,9 @@ if status is-interactive
     else
         tmux new-session -s Dev
     end
+
+    # Setup wayland display
+    set -x WAYLAND_DISPLAY wayland-1
 end
 
 # Alias for custom nvim
@@ -16,7 +19,7 @@ alias nvide="NVIM_APPNAME=bvim neovide"
 
 # NVIM SELECTOR
 function vims
-    set items default nvchad
+    set items default NvChad
     set config (printf "%s\n" $items | fzf --prompt=" Neovim Config = " --height=~50% --layout=reverse --border --exit-0)
 
     if test -z "$config"
@@ -57,6 +60,7 @@ set PATH ~/.npm-global/bin $PATH
 
 # setup local bin
 set -x PATH $PATH $HOME/.local/bin
+
 
 # Auto start neofetch
 alias nf="clear && neofetch"
