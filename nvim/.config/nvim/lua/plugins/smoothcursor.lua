@@ -3,6 +3,7 @@ return {
   -- NOTE: SMOTH CURSOR
   {
     'gen740/SmoothCursor.nvim',
+    event = 'BufReadPre',
     config = function()
       local cursor = require 'smoothcursor'
       local autocmd = vim.api.nvim_create_autocmd

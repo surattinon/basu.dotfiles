@@ -1,5 +1,9 @@
 return {
   'stevearc/oil.nvim',
+  event = 'VimEnter',
+  dependencies = {
+    'SirZenith/oil-vcs-status',
+  },
   config = function()
     require('oil').setup {
       columns = {
@@ -37,7 +41,49 @@ return {
         ['g\\'] = 'actions.toggle_trash',
       },
       use_default_keymaps = true,
+
+      -- oil-vcs-status
+      win_options = {
+        signcolumn = 'number',
+      },
     }
+
+    local status_const = require 'oil-vcs-status.constant.status'
+    local StatusType = status_const.StatusType
+    require('oil-vcs-status').setup {
+      -- Executable path of each version control system.
+      vcs_executable = {
+        git = 'git',
+        svn = 'svn',
+        signcolumn = 'yes:2',
+      },
+      status_symbol = {
+        [StatusType.Added] = '',
+        [StatusType.Copied] = '󰆏',
+        [StatusType.Deleted] = '',
+        [StatusType.Ignored] = '',
+        [StatusType.Modified] = '',
+        [StatusType.Renamed] = '',
+        [StatusType.TypeChanged] = '󰉺',
+        [StatusType.Unmodified] = ' ',
+        [StatusType.Unmerged] = '',
+        [StatusType.Untracked] = '',
+        [StatusType.External] = '',
+
+        [StatusType.UpstreamAdded] = '󰈞',
+        [StatusType.UpstreamCopied] = '󰈢',
+        [StatusType.UpstreamDeleted] = '',
+        [StatusType.UpstreamIgnored] = ' ',
+        [StatusType.UpstreamModified] = '󰏫',
+        [StatusType.UpstreamRenamed] = '',
+        [StatusType.UpstreamTypeChanged] = '󱧶',
+        [StatusType.UpstreamUnmodified] = ' ',
+        [StatusType.UpstreamUnmerged] = '',
+        [StatusType.UpstreamUntracked] = ' ',
+        [StatusType.UpstreamExternal] = '',
+      },
+    }
+
     vim.keymap.set('n', '-', ':lua require("oil").open_float()<CR>', { noremap = true, silent = true })
   end,
 }

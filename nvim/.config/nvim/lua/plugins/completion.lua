@@ -2,6 +2,7 @@ return {
   -- NOTE: COPILOT
   {
     'github/copilot.vim',
+    event = 'BufReadPre',
     config = function()
       vim.keymap.set('i', '<C-Space>', 'copilot#Accept("\\<CR>")', {
         expr = true,
@@ -16,7 +17,7 @@ return {
   -- NOTE: CMP AND SNIPPETS
   { -- Autocompletion
     'hrsh7th/nvim-cmp',
-    event = 'InsertEnter',
+    event = 'BufReadPre',
     dependencies = {
       -- Snippet Engine & its associated nvim-cmp source
       {
@@ -36,6 +37,7 @@ return {
           --    https://github.com/rafamadriz/friendly-snippets
           {
             'rafamadriz/friendly-snippets',
+            event = 'BufReadPre',
             config = function()
               require('luasnip.loaders.from_vscode').lazy_load()
             end,
@@ -145,7 +147,6 @@ return {
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
-          { name = 'neorg' },
         },
       }
     end,

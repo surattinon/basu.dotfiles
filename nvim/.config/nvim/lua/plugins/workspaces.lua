@@ -2,6 +2,7 @@ return {
   -- NOTE: WORKSPACE
   {
     'sanathks/workspace.nvim',
+    lazy = false,
     dependencies = { 'nvim-telescope/telescope.nvim' },
     config = function()
       local workspace = require 'workspace'

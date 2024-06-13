@@ -1,6 +1,7 @@
 return {
   {
     'nvim-java/nvim-java',
+    event = 'BufReadPre',
     dependencies = {
       'nvim-java/lua-async-await',
       'nvim-java/nvim-java-refactor',

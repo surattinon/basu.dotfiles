@@ -1,17 +1,38 @@
 return {
+  -- NOTE: tokyonight
+  -- {
+  --   'folke/tokyonight.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     local tokyonight = require 'tokyonight'
+  --     if vim.g.neovide then
+  --       tokyonight.setup {
+  --         transparent = false,
+  --         style = 'night',
+  --       }
+  --     else
+  --       tokyonight.setup {
+  --         transparent = true,
+  --         style = 'night',
+  --       }
+  --     end
+  --     vim.cmd [[colorscheme tokyonight]]
+  --   end,
+  -- },
   -- NOTE: Tokyodark
-  {
-    'tiagovla/tokyodark.nvim',
-    opts = {},
-    config = function(_, opts)
-      require('tokyodark').setup(opts)
-    end,
-  },
+  -- {
+  --   'tiagovla/tokyodark.nvim',
+  --   config = function()
+  --     -- vim.cmd [[colorscheme tokyodark]]
+  --   end,
+  -- },
 
   -- NOTE: CATPPUCCIN
   {
     'catppuccin/nvim',
     name = 'catppuccin',
+    lazy = false,
     priority = 1000,
     init = function()
       -- Config highlight
@@ -61,15 +82,10 @@ return {
             enabled = true,
             style = 'nvchad',
           },
-
           which_key = true,
         },
       }
-      if vim.g.neovide then
-        vim.cmd [[colorscheme tokyodark]]
-      else
-        vim.cmd [[colorscheme catppuccin-mocha]]
-      end
+      vim.cmd [[colorscheme catppuccin-mocha]]
     end,
   },
 }
