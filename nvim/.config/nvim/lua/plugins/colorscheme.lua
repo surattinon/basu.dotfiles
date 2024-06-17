@@ -41,7 +41,6 @@ return {
     config = function()
       local catppuccin = require 'catppuccin'
       catppuccin.setup {
-        transparent_background = true,
         integrations = {
           alpha = true,
           cmp = true,
@@ -78,13 +77,22 @@ return {
             },
           },
 
+          which_key = true,
+        },
+      }
+      if vim.g.neovide then
+        catppuccin.setup {
+          transparent_background = false,
           telescope = {
             enabled = true,
             style = 'nvchad',
           },
-          which_key = true,
-        },
-      }
+        }
+      else
+        catppuccin.setup {
+          transparent_background = true,
+        }
+      end
       vim.cmd [[colorscheme catppuccin-mocha]]
     end,
   },

@@ -44,5 +44,12 @@ return {
         { 'fancy_lsp_servers' },
       },
     },
+    extensions = {
+      'oil',
+      'neo-tree',
+      'nvim-dap-ui',
+      'mason',
+      'lazy',
+    },
   },
 }
