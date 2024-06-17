@@ -1,0 +1,9 @@
+# Theme
+import = ["~/.config/alacritty/themes/themes/aura.toml"]
+
+[window]
+opacity = 0.55
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font" }
+size = 7
