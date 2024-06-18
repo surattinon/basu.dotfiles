@@ -2,7 +2,7 @@ return {
   -- NOTE: COPILOT
   {
     'github/copilot.vim',
-    event = 'BufReadPre',
+    event = 'VimEnter',
     config = function()
       vim.keymap.set('i', '<C-Space>', 'copilot#Accept("\\<CR>")', {
         expr = true,

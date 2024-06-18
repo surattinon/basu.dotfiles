@@ -12,11 +12,11 @@ return {
       workspaces = {
         {
           name = 'basu-vault',
-          path = '~/Nextcloud/mySMB/workspace/Obsidian-sync/basu-vault',
+          path = '~/Cloud/mySMB/workspace/Obsidian-sync/basu-vault/',
         },
         {
           name = 'dev-vault',
-          path = '~/Dev/obsidian/dev-vault/',
+          path = '~/Cloud/mySMB/workspace/Obsidian-sync/dev-vault/',
 
           overrides = {
             notes_subdir = 'notes',
@@ -24,7 +24,7 @@ return {
         },
         {
           name = 'second-brain',
-          path = '~/Dev/obsidian/second-brain/',
+          path = '~/Cloud/mySMB/workspace/Obsidian-sync/second-brain/',
 
           overrides = {
             notes_subdir = 'Atomic-notes/Fleeting-notes',
