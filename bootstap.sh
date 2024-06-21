@@ -93,10 +93,12 @@ fish_omf() {
 		curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install >install
 		fish install --path=~/.local/share/omf --config=~/.config/omf
 		echo "Oh my fish Installed"
+		rm install
 	else
 		echo "$OMF_DIR does not exist."
 		curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install >install
 		fish install --path=~/.local/share/omf --config=~/.config/omf
 		echo "Oh my fish Installed"
+		rm install
 	fi
 }
