@@ -37,7 +37,6 @@ return {
           --    https://github.com/rafamadriz/friendly-snippets
           {
             'rafamadriz/friendly-snippets',
-            event = 'BufReadPre',
             config = function()
               require('luasnip.loaders.from_vscode').lazy_load()
             end,
@@ -88,10 +87,10 @@ return {
         },
 
         -- NOTE: For border UI
-        -- window = {
-        --   completion = cmp.config.window.bordered(),
-        --   documentation = cmp.config.window.bordered(),
-        -- },
+        window = {
+          completion = cmp.config.window.bordered(),
+          documentation = cmp.config.window.bordered(),
+        },
 
         -- For an understanding of why these mappings were
         -- chosen, you will need to read `:help ins-completion`

@@ -1,6 +1,6 @@
 return {
-
-  { -- Linting
+  -- NOTE: Linter
+  {
     'mfussenegger/nvim-lint',
     event = { 'BufReadPre', 'BufNewFile' },
     opts = {

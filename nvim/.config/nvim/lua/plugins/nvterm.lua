@@ -2,7 +2,7 @@ return {
   -- NOTE: NV TERM
   {
     'NvChad/nvterm',
-    lazy = false,
+    event = 'VeryLazy',
     config = function()
       local opts = {
         terminals = {

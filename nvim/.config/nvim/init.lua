@@ -18,10 +18,10 @@ require('lazy').setup({
   -- NOTE: Import all *.lua files form lua/plugins folder
   { import = 'plugins' },
 }, {
-  defaults = {
-    lazy = true,
-  },
+  -- NOTE: Lazy settings
+
   ui = {
+    border = 'rounded',
     icons = vim.g.have_nerd_font and {} or {
       cmd = '⌘',
       config = '🛠',

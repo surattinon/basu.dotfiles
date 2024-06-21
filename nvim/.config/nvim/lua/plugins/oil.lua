@@ -1,6 +1,6 @@
 return {
   'stevearc/oil.nvim',
-  event = 'VimEnter',
+  event = 'VeryLazy',
   dependencies = {
     'SirZenith/oil-vcs-status',
   },

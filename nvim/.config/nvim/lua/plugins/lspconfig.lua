@@ -1,7 +1,6 @@
 return {
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
-    event = 'BufReadPre',
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
       {
@@ -14,6 +13,7 @@ return {
               package_pending = '➜',
               package_uninstalled = '✗',
             },
+            border = 'rounded',
           },
         },
       }, -- NOTE: Must be loaded before dependants
@@ -69,7 +69,6 @@ return {
           local map = function(keys, func, desc)
             vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
-
           -- Jump to the definition of the word under your cursor.
           --  This is where a variable was first declared, or where a function is defined, etc.
           --  To jump back, press <C-t>.
@@ -252,6 +251,10 @@ return {
             -- by the server configuration above. Useful when disabling
             -- certain features of an LSP (for example, turning off formatting for tsserver)
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+            server.handlers = {
+              ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' }),
+              ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' }),
+            }
             require('lspconfig')[server_name].setup(server)
           end,
         },
