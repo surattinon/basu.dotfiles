@@ -12,11 +12,6 @@ sudo pacman -S --needed --noconfirm \
 	base-devel \
 	git
 
-installYay
-pacDepend
-tmux_setup
-fish_omf
-
 # Install yay
 installYay() {
 	echo "============================"
@@ -77,12 +72,8 @@ fish_omf() {
 		echo "$FISH_DIR does exist."
 		mv $FISH_DIR $FISH_DIR.bak
 		echo "Backup to $FISH_DIR.bak"
-		stow fish
-		echo "Created symlink for fish config"
 	else
 		echo "$FISH_DIR does not exist."
-		stow fish
-		echo "Created symlink for fish config"
 	fi
 	echo "=================================="
 	OMF_DIR=~/.config/omf
@@ -90,15 +81,18 @@ fish_omf() {
 		echo "$OMF_DIR does exist."
 		mv $OMF_DIR $OMF_DIR.bak
 		echo "Backup to $OMF_DIR.bak"
-		curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install >install
-		fish install --path=~/.local/share/omf --config=~/.config/omf
-		echo "Oh my fish Installed"
-		rm install
 	else
 		echo "$OMF_DIR does not exist."
 		curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install >install
 		fish install --path=~/.local/share/omf --config=~/.config/omf
 		echo "Oh my fish Installed"
-		rm install
+		sudo rm install
 	fi
+	stow fish
+	echo "Created symlink for fish and omf"
 }
+
+installYay
+pacDepend
+tmux_setup
+fish_omf
