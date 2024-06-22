@@ -64,7 +64,7 @@ tmux_setup() {
 	fi
 }
 
-# fish and oh my fish
+# fish and oh my fish config
 fish_omf() {
 	echo "=================================="
 	FISH_DIR=~/.config/fish
@@ -72,23 +72,18 @@ fish_omf() {
 		echo "$FISH_DIR does exist."
 		mv $FISH_DIR $FISH_DIR.bak
 		echo "Backup to $FISH_DIR.bak"
-		curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install >install
-		fish install --path=~/.local/share/omf --config=~/.config/omf
+		mkdir ~/tmp/omf_install
+		curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install >~/tmp/omf_install/install
+		fish ~/tmp/omf_install/install --path=~/.local/share/omf --config=~/.config/omf
 		stow fish
 		echo "Created symlink for fish and omf"
 	else
 		echo "$FISH_DIR does not exist."
-	fi
-	echo "=================================="
-	OMF_DIR=~/.config/omf
-	if [ -d "$OMF_DIR" ]; then
-		echo "$OMF_DIR does exist."
-		mv $OMF_DIR $OMF_DIR.bak
-		echo "Backup to $OMF_DIR.bak"
-	else
-		echo "$OMF_DIR does not exist."
-		echo "Oh my fish Installed"
-		sudo rm install
+		mkdir ~/tmp/omf_install
+		curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install >~/tmp/omf_install/install
+		fish ~/tmp/omf_install/install --path=~/.local/share/omf --config=~/.config/omf
+		stow fish
+		echo "Created symlink for fish and omf"
 	fi
 }
 
