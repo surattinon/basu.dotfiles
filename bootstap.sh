@@ -28,7 +28,7 @@ install_packages() {
 	echo "============================"
 	echo "Installing AUR packages"
 	echo "============================"
-	yay -S --needed --noconfirm \
+	yay -S --needed \
 		neovim-nightly \
 		ttf-jetbrains-mono-nerd \
 		alacritty-smooth-cursor-git \
@@ -94,4 +94,5 @@ fish_omf() {
 
 install_yay
 install_packages
-fish_config
+tmux_setup
+fish_omf
