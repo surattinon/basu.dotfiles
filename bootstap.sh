@@ -53,48 +53,56 @@ install_packages() {
 
 # Setup tmux config
 tmux_setup() {
-	echo "=================================="
 	TMUX_CONF=~/.tmux.conf
 	if [ -f "$TMUX_CONF" ]; then
-		echo "$TMUX_CONF does exist."
+		echo ":: $TMUX_CONF does exist."
 		mv $TMUX_CONF $TMUX_CONF.bak
-		echo "Backup to $TMUX_CONF.bak"
+		echo ":: Backup to $TMUX_CONF.bak"
 		stow tmux
 		git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-		echo "Tmux setup successfully"
+		echo ":: Tmux setup successfully"
 	else
-		echo "$TMUX_CONF does not exist."
+		echo ":: $TMUX_CONF does not exist."
 		stow tmux
 		git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-		echo "Tmux setup successfully"
+		echo ":: Tmux setup successfully"
 	fi
 }
 
 # fish and oh my fish config
 fish_omf() {
-	echo "=================================="
 	FISH_DIR=~/.config/fish
 	OMF_DIR=~/.config/omf
 	if [ -d "$FISH_DIR" ]; then
-		echo "$FISH_DIR does exist."
+		echo ":: $FISH_DIR does exist."
 		mv $FISH_DIR $FISH_DIR.bak
-		echo "Backup to $FISH_DIR.bak"
-		mkdir ~/tmp/omf_install
-		curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install >~/tmp/omf_install/install
-		fish ~/tmp/omf_install/install --path=~/.local/share/omf --config=~/.config/omf
+		echo ":: Backup to $FISH_DIR.bak"
+		if [ -d ! "$OMF_DIR" ]; then
+			echo "Oh My Fish does not exist"
+			mkdir ~/tmp/omf_install
+			curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install >~/tmp/omf_install/install
+			fish ~/tmp/omf_install/install --path=~/.local/share/omf --config=~/.config/omf
+		else
+			echo "Oh My Fish does exist"
+		fi
 		mv $OMF_DIR $OMF_DIR.bak
-		echo "Backup to $OMF_DIR.bak"
+		echo ":: Backup to $OMF_DIR.bak"
 		stow fish
-		echo "Created symlink for fish and omf"
+		echo ":: Created symlink for fish and omf"
 	else
-		echo "$FISH_DIR does not exist."
-		mkdir ~/tmp/omf_install
-		curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install >~/tmp/omf_install/install
-		fish ~/tmp/omf_install/install --path=~/.local/share/omf --config=~/.config/omf
+		echo ":: $FISH_DIR does not exist."
+		if [ -d ! "$OMF_DIR" ]; then
+			echo "Oh My Fish does not exist"
+			mkdir ~/tmp/omf_install
+			curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install >~/tmp/omf_install/install
+			fish ~/tmp/omf_install/install --path=~/.local/share/omf --config=~/.config/omf
+		else
+			echo "Oh My Fish does exist"
+		fi
 		mv $OMF_DIR $OMF_DIR.bak
-		echo "Backup to $OMF_DIR.bak"
+		echo ":: Backup to $OMF_DIR.bak"
 		stow fish
-		echo "Created symlink for fish and omf"
+		echo ":: Created symlink for fish and omf"
 	fi
 }
 
