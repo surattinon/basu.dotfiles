@@ -53,20 +53,28 @@ install_packages() {
 
 # Setup tmux config
 tmux_setup() {
+	echo "====================="
+	echo "TMUX Setup"
+	echo "====================="
 	TMUX_CONF=~/.tmux.conf
+	TPM=~/.tmux/plugins/tmp
+	if [ -d "$TMP" ]; then
+		echo ":: Begin install Tmux TPM"
+		git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+	fi
+
 	if [ -f "$TMUX_CONF" ]; then
 		echo ":: $TMUX_CONF does exist."
 		mv $TMUX_CONF $TMUX_CONF.bak
 		echo ":: Backup to $TMUX_CONF.bak"
 		stow tmux
-		git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-		echo ":: Tmux setup successfully"
+		echo ":: Tmux config setup successfully"
 	else
 		echo ":: $TMUX_CONF does not exist."
 		stow tmux
-		git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-		echo ":: Tmux setup successfully"
+		echo ":: Tmux config setup successfully"
 	fi
+
 }
 
 # fish and oh my fish config
