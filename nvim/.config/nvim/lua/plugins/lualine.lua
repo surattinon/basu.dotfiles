@@ -7,11 +7,10 @@ return {
   },
   opts = {
     options = {
-      -- theme = 'iceberg_dark',
       theme = 'sonokai',
       component_separators = { left = '│', right = '│' },
       section_separators = { left = '', right = '' },
-      globalstatus = false,
+      globalstatus = true,
       refresh = {
         statusline = 100,
       },

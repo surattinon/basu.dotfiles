@@ -3,7 +3,7 @@
 
 return {
   'nvim-neo-tree/neo-tree.nvim',
-  event = 'VeryLazy',
+  event = 'BufReadPre',
   branch = 'v3.x',
   dependencies = {
     'nvim-lua/plenary.nvim',
