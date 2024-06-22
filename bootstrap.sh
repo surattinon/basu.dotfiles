@@ -12,6 +12,14 @@ sudo pacman -S --needed --noconfirm \
 	base-devel \
 	git
 
+# bootstrap
+bootstrap() {
+	install_yay
+	install_packages
+	tmux_setup
+	fish_omf
+}
+
 # Install yay
 install_yay() {
 	if ! command -v yay &>/dev/null; then
@@ -89,12 +97,12 @@ fish_omf() {
 		mv $FISH_DIR $FISH_DIR.bak
 		echo ":: Backup to $FISH_DIR.bak"
 		if ! command -v yay &>/dev/null; then
-			echo "Oh My Fish does not exist"
+			echo ":: Oh My Fish does not exist"
 			mkdir ~/tmp/omf_install
 			curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install >~/tmp/omf_install/install
 			fish ~/tmp/omf_install/install --path=~/.local/share/omf --config=~/.config/omf
 		else
-			echo "Oh My Fish does exist"
+			echo ":: Oh My Fish does exist"
 		fi
 		if [ -d "$OMF_DIR" ]; then
 			echo ":: $OMF_DIR does exist."
@@ -106,12 +114,12 @@ fish_omf() {
 	else
 		echo ":: $FISH_DIR does not exist."
 		if [ ! -d "$OMF_DIR" ]; then
-			echo "Oh My Fish does not exist"
+			echo ":: Oh My Fish does not exist"
 			mkdir ~/tmp/omf_install
 			curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install >~/tmp/omf_install/install
 			fish ~/tmp/omf_install/install --path=~/.local/share/omf --config=~/.config/omf
 		else
-			echo "Oh My Fish does exist"
+			echo ":: Oh My Fish does exist"
 		fi
 		mv $OMF_DIR $OMF_DIR.bak
 		echo ":: Backup to $OMF_DIR.bak"
@@ -120,7 +128,4 @@ fish_omf() {
 	fi
 }
 
-install_yay
-install_packages
-tmux_setup
-fish_omf
+bootstrap
