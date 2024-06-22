@@ -14,13 +14,19 @@ sudo pacman -S --needed --noconfirm \
 
 # Install yay
 install_yay() {
-	echo "============================"
-	echo "Installing yay"
-	echo "============================"
-	mkdir ~/tmp
-	git clone https://aur.archlinux.org/yay.git ~/tmp/yay
-	cd ~/tmp/yay && makepkg -si --noconfirm
-	rm -rf ~/tmp/yay
+	if ! command -v yay &>/dev/null; then
+		echo "============================"
+		echo "Installing yay"
+		echo "============================"
+		mkdir ~/tmp
+		git clone https://aur.archlinux.org/yay.git ~/tmp/yay
+		cd ~/tmp/yay && makepkg -si --noconfirm
+		rm -rf ~/tmp/yay
+	else
+		echo "============================"
+		echo "yay is already installed"
+		echo "============================"
+	fi
 }
 
 # Install packages from AUR
