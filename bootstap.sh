@@ -85,7 +85,7 @@ fish_omf() {
 		echo ":: $FISH_DIR does exist."
 		mv $FISH_DIR $FISH_DIR.bak
 		echo ":: Backup to $FISH_DIR.bak"
-		if ![ -d "$OMF_DIR" ]; then
+		if [! -d "$OMF_DIR" ]; then
 			echo "Oh My Fish does not exist"
 			mkdir ~/tmp/omf_install
 			curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install >~/tmp/omf_install/install
@@ -99,7 +99,7 @@ fish_omf() {
 		echo ":: Created symlink for fish and omf"
 	else
 		echo ":: $FISH_DIR does not exist."
-		if ![ -d "$OMF_DIR" ]; then
+		if [! -d "$OMF_DIR" ]; then
 			echo "Oh My Fish does not exist"
 			mkdir ~/tmp/omf_install
 			curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install >~/tmp/omf_install/install
