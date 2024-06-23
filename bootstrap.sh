@@ -106,8 +106,7 @@ fish_omf() {
 		fi
 		if [ -d "$OMF_DIR" ]; then
 			echo ":: $OMF_DIR does exist."
-			mv $OMF_DIR $OMF_DIR.bak
-			echo ":: Backup to $OMF_DIR.bak"
+			rm -rf $OMF_DIR
 		fi
 		stow fish
 		echo ":: Created symlink for fish and omf"
