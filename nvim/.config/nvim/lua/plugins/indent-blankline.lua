@@ -1,6 +1,6 @@
 return {
   'lukas-reineke/indent-blankline.nvim',
-  event = 'BufReadPre',
+  event = 'VimEnter',
   config = function()
     local highlight = {
       'RainbowRed',

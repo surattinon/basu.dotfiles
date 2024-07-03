@@ -1,6 +1,5 @@
 return {
   'stevearc/oil.nvim',
-  event = 'VeryLazy',
   dependencies = {
     'SirZenith/oil-vcs-status',
   },

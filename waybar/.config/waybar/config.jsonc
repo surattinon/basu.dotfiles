@@ -15,6 +15,7 @@
     "battery",
     "clock",
     "hyprland/language",
+    "custom/notification",
     "tray",
   ],
 
@@ -28,7 +29,7 @@
     "active-only": "false",
     "format": "{icon}",
     "persistent-workspaces": {
-      "*": 5,
+      "*": 3,
     },
   },
   "hyprland/window": {
@@ -41,6 +42,7 @@
   },
   "clock": {
     // "timezone": "America/New_York",
+    "format": "{:%H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": "{:%Y-%m-%d}",
   },
@@ -67,7 +69,7 @@
     },
     "format": "{capacity}% {icon}",
     "format-full": "{capacity}% {icon}",
-    "format-charging": "{capacity}% ",
+    "format-charging": "{capacity}% ",
     "format-plugged": "{capacity}% ",
     "format-alt": "{time} {capacity}% {icon}",
     // "format-good": "", // An empty format will hide the module
@@ -81,10 +83,10 @@
     // "interface": "wlp2*", // (Optional) To force the use of this interface
     "format-wifi": "{essid} ({signalStrength}%) ",
     "format-ethernet": "{ipaddr}/{cidr} 󰲝",
-    "tooltip-format": "{ifname} via {gwaddr} ",
+    "tooltip-format": "{ifname} | {ipaddr}/{cidr}",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "󰲜",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    "on-click": "kitty nmtui",
   },
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
@@ -116,5 +118,25 @@
     "escape": true,
     "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources folder
     // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": " ",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": " ",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": " ",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": " ",
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true,
   },
 }
