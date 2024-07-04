@@ -1,13 +1,14 @@
 return {
   'HiPhish/rainbow-delimiters.nvim',
-  event = 'BufReadPre',
+  event = 'VimEnter',
   config = function()
-    local rainbowsetup = require 'rainbow-delimiters.setup'
-    local rainbow = require 'rainbow-delimiters'
-    rainbowsetup.setup {
+    local rainbow_delimiters = require 'rainbow-delimiters'
+
+    ---@type rainbow_delimiters.config
+    vim.g.rainbow_delimiters = {
       strategy = {
-        [''] = rainbow.strategy['global'],
-        vim = rainbow.strategy['local'],
+        [''] = rainbow_delimiters.strategy['global'],
+        vim = rainbow_delimiters.strategy['local'],
       },
       query = {
         [''] = 'rainbow-delimiters',

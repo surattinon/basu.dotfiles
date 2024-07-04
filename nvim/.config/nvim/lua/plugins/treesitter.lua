@@ -1,7 +1,6 @@
 return {
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
-    Event = 'BufReadPre',
     dependencies = {
       'yioneko/nvim-yati',
     },
