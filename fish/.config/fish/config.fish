@@ -5,9 +5,6 @@ if status is-interactive
     else
         tmux new-session -s Dev
     end
-
-    # Setup wayland display
-    set -x WAYLAND_DISPLAY wayland-1
 end
 
 # Alias for custom nvim
