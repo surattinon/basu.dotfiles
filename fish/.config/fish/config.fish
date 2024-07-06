@@ -7,6 +7,8 @@ if status is-interactive
     end
 end
 
+fish_vi_key_bindings
+
 # Alias for custom nvim
 alias vim="nvim"
 alias chad="NVIM_APPNAME=nvchad nvim"
