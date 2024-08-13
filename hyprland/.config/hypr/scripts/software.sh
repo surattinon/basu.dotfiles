@@ -1,0 +1,1 @@
+env -u WAYLAND_DISPLAY alacritty -e pacseek

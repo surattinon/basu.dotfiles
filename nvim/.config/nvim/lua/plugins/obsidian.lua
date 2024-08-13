@@ -23,6 +23,20 @@ return {
           },
         },
         {
+          name = 'Collage Notes',
+          path = '~/Clouds/Obsidian-sync/Collage Notes/',
+
+          overrides = {
+            notes_subdir = 'support-notes',
+            daily_notes = {
+              folder = 'dailies',
+              date_format = '%Y-%m-%d',
+              alias_format = '%B %-d, %Y',
+              template = nil,
+            },
+          },
+        },
+        {
           name = 'second-brain',
           path = '~/Clouds/Obsidian-sync/second-brain/',
 

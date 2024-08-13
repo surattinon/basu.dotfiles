@@ -7,6 +7,7 @@
   "modules-left": ["custom/logo", "hyprland/workspaces", "custom/media"],
   "modules-center": ["hyprland/window"],
   "modules-right": [
+    "custom/updates",
     "pulseaudio",
     "network",
     "cpu",
@@ -142,5 +143,14 @@
   "custom/logo": {
     "format": " ",
     "on-click": "rofi -show drun",
+  },
+  "custom/updates": {
+    "format": "   {}",
+    "escape": true,
+    "return-type": "json",
+    "exec": "~/dotfiles/hyprland/.config/hypr/scripts/updates.sh",
+    "restart-interval": 60,
+    "on-click": "kitty --class dotfiles-floating -e ~/dotfiles/hyprland/.config/hypr/scripts/installupdates.sh",
+    "on-click-right": "~/dotfiles/hyprland/.config/hypr/scripts/software.sh",
   },
 }

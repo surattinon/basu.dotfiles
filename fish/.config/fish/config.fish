@@ -7,7 +7,11 @@ if status is-interactive
     end
 end
 
+# Vim keybindings for fish
 fish_vi_key_bindings
+
+# Set up fzf key bindings
+fzf --fish | source
 
 # Alias for custom nvim
 alias vim="nvim"
@@ -18,7 +22,7 @@ alias nvide="NVIM_APPNAME=bvim neovide"
 
 # NVIM SELECTOR
 function vims
-    set items default NvChad
+    set items default NvChad AstroNvim
     set config (printf "%s\n" $items | fzf --prompt=" Neovim Config = " --height=~50% --layout=reverse --border --exit-0)
 
     if test -z "$config"
@@ -40,6 +44,7 @@ alias lzg="lazygit"
 
 # To enable zoxide in fish shell and rebind cd to zoxide
 zoxide init --cmd cd fish | source
+# zoxide init fish | source
 
 alias cat="bat" # Use bat as cat
 

@@ -56,6 +56,9 @@ return {
       --     indent_at_cursor = true,
       --   },
       -- }
+
+      -- NOTE: ICONS
+      require('mini.icons').setup()
     end,
   },
 }
