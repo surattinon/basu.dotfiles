@@ -18,7 +18,7 @@ alias vim="nvim"
 alias chad="NVIM_APPNAME=nvchad nvim"
 
 # NEOVIDE
-alias nvide="NVIM_APPNAME=bvim neovide"
+alias vide="neovide"
 
 # NVIM SELECTOR
 function vims
