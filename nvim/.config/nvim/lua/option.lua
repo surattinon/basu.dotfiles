@@ -72,3 +72,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- Conceal text
 vim.opt.conceallevel = 2
+
+-- Spell Check
+vim.opt.spelllang = 'en_us'

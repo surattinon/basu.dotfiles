@@ -20,6 +20,15 @@
     "tray",
   ],
 
+  // Updates Count
+  "custom/updates": {
+    "format": "   {}",
+    "escape": true,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/update-count.sh",
+    "restart-interval": 60,
+  },
+
   "hyprland/language": {
     "format": "{}",
     "format-en": "US",
@@ -42,7 +51,7 @@
     "spacing": 10,
   },
   "clock": {
-    // "timezone": "America/New_York",
+    "timezone": "Asia/Bangkok",
     "format": "{:%H:%M ⏽ %B %d }",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": "{:%Y-%m-%d}",
@@ -143,14 +152,5 @@
   "custom/logo": {
     "format": " ",
     "on-click": "rofi -show drun",
-  },
-  "custom/updates": {
-    "format": "   {}",
-    "escape": true,
-    "return-type": "json",
-    "exec": "~/dotfiles/hyprland/.config/hypr/scripts/updates.sh",
-    "restart-interval": 60,
-    "on-click": "kitty --class dotfiles-floating -e ~/dotfiles/hyprland/.config/hypr/scripts/installupdates.sh",
-    "on-click-right": "~/dotfiles/hyprland/.config/hypr/scripts/software.sh",
   },
 }

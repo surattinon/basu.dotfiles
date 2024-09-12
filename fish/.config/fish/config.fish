@@ -65,6 +65,8 @@ set PATH ~/.npm-global/bin $PATH
 # setup local bin
 set -x PATH $PATH $HOME/.local/bin
 
+# Setup NVM PATH
+set -gx NVM_DIR $HOME/.nvm
 
 # Auto start neofetch
 alias nf="clear && neofetch"
